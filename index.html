@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>降 E 大调夜曲 · 谱面导听</title>
+<link rel="stylesheet" href="style.css">
+<script src="performance.js" defer></script>
+<script src="guide.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="masthead">
+  <div class="eyebrow">谱面导听 <span></span> NOCTURNE IN E♭</div>
+  <h1>降 E 大调夜曲</h1>
+  <p>弗雷德里克·肖邦 <b>·</b> Op. 9 No. 2 <b>·</b> 钢琴独奏</p>
+</header>
+<div class="transport">
+  <button id="play" type="button" aria-label="播放" title="播放或暂停（空格键）">▶</button>
+  <div class="progress">
+    <label class="sr" for="seek">播放进度</label>
+    <input id="seek" type="range" min="0" max="1" step="0.01" value="0" disabled>
+    <div class="times"><output id="clock">0:00</output><output id="duration">--:--</output></div>
+  </div>
+  <label class="follow"><input id="follow" type="checkbox" checked> 自动跟谱</label>
+  <audio id="audio" preload="metadata" src="Noble Music Project - 肖邦 夜曲.mp3"></audio>
+</div>
+<p id="message" role="status" hidden></p>
+<main>
+  <section class="score-panel" aria-labelledby="score-heading">
+    <div class="panel-heading"><h2 id="score-heading">钢琴谱</h2><span>点小节跳播</span></div>
+    <div id="score"></div>
+    <footer class="credits">
+      乐谱来自 <a href="https://github.com/musetrainer/library">MuseTrainer 公有领域曲谱库</a>（<a href="score.musicxml" download>下载 MusicXML</a>）。
+      <p>录音来源为 Noble Music Project《肖邦 夜曲》。本站将这份录音用于配合乐谱导听，录音相关权利归各权利人所有。</p>
+    </footer>
+  </section>
+  <aside aria-label="同步导听">
+    <details class="key" open>
+      <summary><span class="label">全曲调性</span> <strong>降 E 大调</strong></summary>
+      <p>调号有三个降号。弱起的 B♭ 引向第 1 小节 E♭ 主和弦，第 4 小节的 B♭⁷ → E♭ 则用属到主的终止确认调性。结尾同样由 B♭⁷ 回到 E♭。</p>
+      <p>中途短暂把 F 小调、C 小调或 B♭ 当作局部目标。第 12、20 小节还掠过 E 大三和弦，随后经 C⁷ → F⁷ → B♭⁷ 回到 E♭。导听把这些瞬间按主音化或半音经过来听。A♭m 是向同主音小调借来的小下属。</p>
+    </details>
+    <section class="harmony" aria-labelledby="harmony-heading">
+      <div class="card-head"><h2 class="label" id="harmony-heading">当前和声</h2><span id="where"></span></div>
+      <div class="chord-line"><strong id="chord"></strong><span id="roman"></span></div>
+      <p class="notes" id="notes"></p>
+      <p id="function"></p>
+    </section>
+    <section class="listening" aria-labelledby="guide-heading">
+      <div class="card-head"><h2 class="label" id="guide-heading">乐段导听</h2><button id="sync-guide" type="button" hidden>回到播放位置</button></div>
+      <label class="sr" for="section">选择导听段落</label>
+      <select id="section"></select>
+      <h3 id="listen"></h3>
+      <details><summary>展开细读</summary><p id="detail"></p></details>
+    </section>
+  </aside>
+</main>
+</body>
+</html>
+
